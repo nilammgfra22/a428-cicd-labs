@@ -15,7 +15,7 @@ node {
         stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
+                input message: 'Lanjutkan ke tahap Deploy? klik Proceed (lanjut) atau Abort (menghentikan eksekusi pipeline)'
                 sh './jenkins/scripts/kill.sh'
             }
         }
