@@ -18,12 +18,12 @@ pipeline {
         }
         stage('Manual Approval') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
                 input message: 'Apakah Anda ingin melanjutkan ke tahap Deploy?', ok: 'Proceed', submitter: 'admin'
             }
         }
         stage('Deploy') {
             steps {
+                sh './jenkins/scripts/deliver.sh'
                 sh './jenkins/scripts/kill.sh'
                 sleep(time: 60, unit: 'SECONDS') // Menjeda selama 1 menit
             }
