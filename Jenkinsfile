@@ -24,8 +24,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                sh './jenkins/scripts/kill.sh'
                 sleep(time: 60, unit: 'SECONDS') // Menjeda selama 1 menit
+                sh './jenkins/scripts/kill.sh'
             }
         }
     }
